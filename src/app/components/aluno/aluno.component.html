@@ -1,11 +1,25 @@
-<div class="flex col-sm-12 px-5 mt-5">
-  <h3>Incluir Aluno</h3>
-  <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
-    <div class="form-group">
-      <label for="matricula" class="h5 mt-4">Matrícula</label>
-      <input type="text" class="form-control" name="matricula" id="matricula" formControlName="matricula">
+<div class="flex col-sm-12 px-5 mx-5 mt-5 backgroundImage">
+  <div class="text-center">
+    <h3>Incluir Aluno</h3>
+  </div>
+  <div class="col-md-12 row">
+    <div class="col-md-2"></div>
+    <div class="card col-md-8">
+      <div class="card-body">
+        <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="matricula" class="h5 mt-4">Matrícula</label>
+            <input type="text" class="form-control" name="matricula" id="matricula" formControlName="matricula">
+          </div>
+          
+          <div class="form-group">
+            <label for="matricula" class="h5 mt-4">Matrícula</label>
+            <input type="text" class="form-control" name="matricula" id="matricula" formControlName="matricula">
+          </div>
+
+
+        </form>
+      </div>
     </div>
-
-
-  </form>
+  </div>
 </div>

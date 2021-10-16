@@ -1,1 +1,11 @@
-<p>disciplina works!</p>
+<div>
+    <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <div class="col-sm-12">
+                <label class="h5" for="nome">Nome</label>
+                <input id="nome" type="text">
+            </div>
+        </div>
+
+    </form>
+</div>
