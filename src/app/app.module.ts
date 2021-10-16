@@ -10,6 +10,7 @@ import { DisciplinaComponent } from './components/disciplina/disciplina.componen
 import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { BaseFormComponent } from './shared/components/base-form/base-form.component';
+import { BtnVoltarComponent } from './shared/components/btn-voltar/btn-voltar.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { BaseFormComponent } from './shared/components/base-form/base-form.compo
     NavbarComponent,
     AlunoComponent,
     ProfessorComponent,
-    DisciplinaComponent
+    DisciplinaComponent,
+    BtnVoltarComponent
   ],
   imports: [
     BrowserModule,
