@@ -1,15 +1,18 @@
+import { EscolaridadeENUM } from "../enum/escolaridade.enum";
+import { IDisciplina } from "./disciplina.model";
+
 export interface IAluno {
     matricula?: string;
     nome?: string;
     caminhoArcanista?: string;
     dataNascimento?: string;
-    idade?: string;
-    escolaridade?: string;
+    idade?: number;
+    escolaridade?: EscolaridadeENUM;
     nota?: [];
     foto?: string;
     curriculo?: string;
-    disciplinas?: [];
-    disciplinasFinalizadas?: [];
+    disciplinas?: IDisciplina[];
+    disciplinasFinalizadas?: IDisciplina[];
     escolaPretendida?: string;
 }
 
@@ -19,13 +22,13 @@ export class Aluno implements IAluno {
         public nome?: string,
         public caminhoArcanista?: string,
         public dataNascimento?: string,
-        public idade?: string,
-        public escolaridade?: string,
+        public idade?: number,
+        public escolaridade?: EscolaridadeENUM,
         public nota?: [],
         public foto?: string,
         public curriculo?: string,
-        public disciplinas?: [],
-        public disciplinasFinalizadas?: [],
+        public disciplinas?: IDisciplina[],
+        public disciplinasFinalizadas?: IDisciplina[],
         public escolaPretendida?: string
     ) {}
 }
