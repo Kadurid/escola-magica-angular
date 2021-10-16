@@ -1,11 +1,9 @@
-<div>
+<div class="flex col-sm-12 px-5 mt-5">
+  <h3>Incluir Aluno</h3>
   <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
-
     <div class="form-group">
-      <div class="col-sm-12">
-        <label class="h5" for="">Matrícula</label>
-        <input type="text" formControlName="">
-      </div>
+      <label for="matricula" class="h5 mt-4">Matrícula</label>
+      <input type="text" class="form-control" name="matricula" id="matricula" formControlName="matricula">
     </div>
 
 
