@@ -30,7 +30,7 @@
 
                     <div class="form-group">
                         <label for="alunos" class="h5 mt-4">Alunos</label>
-                        <select class="form-select" id="alunos" formControlName="alunos" style="width: 97%!important;">
+                        <select class="form-select" id="alunos" style="width: 97%!important;" formControlName="alunos" (change)="addAluno()">
                             <option value="" disabled>Selecione um professor</option>
                             <option *ngFor="let itera of alunosDisponiveis " value="{{itera}}">{{itera.nome}}</option>
                         </select>

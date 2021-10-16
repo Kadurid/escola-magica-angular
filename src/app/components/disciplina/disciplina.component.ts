@@ -7,16 +7,14 @@ import { SubClasseENUM } from 'src/app/shared/core/enum/sub-classe.enum';
 import { Aluno, IAluno } from 'src/app/shared/core/model/aluno.model';
 import { Disciplina } from 'src/app/shared/core/model/disciplina.model';
 import { IProfessor, Professor } from 'src/app/shared/core/model/professor.model';
-import { AlunoService } from 'src/app/shared/core/service/aluno.service';
 import { DisciplinaService } from 'src/app/shared/core/service/disciplina.service';
-import { ProfessorService } from 'src/app/shared/core/service/professor.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-disciplina',
   templateUrl: './disciplina.component.html'
 })
 export class DisciplinaComponent extends BaseFormComponent implements OnInit {
-  formulario!: FormGroup;
 
   professores: IProfessor[] = [];
   alunosDisponiveis: IAluno[] = [];
@@ -24,9 +22,8 @@ export class DisciplinaComponent extends BaseFormComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private service: DisciplinaService,
-    private professorService: ProfessorService,
-    private alunoService: AlunoService
+    private location: Location,
+    private service: DisciplinaService
   ) {
     super();
   }
@@ -38,11 +35,11 @@ export class DisciplinaComponent extends BaseFormComponent implements OnInit {
   }
 
   createForm() {
-    this.fb.group({
+    this. formulario =this.fb.group({
       id: [null],
       nome: [null],
-      professorResponsavel: [null],
-      alunos: [null],
+      professorResponsavel: [""],
+      alunos: [""],
       revogada: [null],
       cargaHoraria: [null]
     })
@@ -69,10 +66,32 @@ export class DisciplinaComponent extends BaseFormComponent implements OnInit {
     this.alunosDisponiveis.push(new Aluno('202111et', 'Mariazinha', 'CLERIGO', '10/10/199', 12, EscolaridadeENUM.INICIANTE, [], '', '', [], [], 'uma ai'));
   }
 
+  addAluno() {
+    this.alunosAdicionados.push(this.getAlunoAdicionado(this.formulario));
+    console.log(this.alunosAdicionados);
+  }
+
+  getAlunoAdicionado(data: any): IAluno {
+    return data.alunos;
+  }
+
+
+  fromData(data: any){
+    let disciplina = new Disciplina();
+    disciplina.id = data.id;
+    disciplina.nome = data.nome;
+    disciplina.professorResponsavel = data.professorResponsavel;
+    disciplina.alunos = this.alunosAdicionados;
+    disciplina.revogada = data.revogada;
+    disciplina.cargaHoraria = data.cargaHoraria;
+    return disciplina;
+  }
+
   submit(){
     console.log(this.formulario);
-    let disciplina = new Disciplina();
+    let disciplina = this.fromData(this.formulario);
+    console.log(disciplina);
     this.service.create(disciplina);
-
+    this.location.back();
   }
 }
