@@ -1,6 +1,7 @@
+import { EscolaridadeENUM } from './../../shared/core/enum/escolaridade.enum';
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
 import { BaseFormComponent } from 'src/app/shared/components/base-form/base-form.component';
 import { Aluno } from 'src/app/shared/core/model/aluno.model';
 import { AlunoService } from 'src/app/shared/core/service/aluno.service';
@@ -18,19 +19,19 @@ export class AlunoComponent extends BaseFormComponent implements OnInit {
   ) {
     super();
   }
-
+  iterateEscolaridadeEnum: EscolaridadeENUM[] = [];
   ngOnInit(): void {
-    this.criarForm();
+    this.createForm();
   }
 
-  criarForm() {
-    this.fb.group({
+  createForm() {
+    this.formulario = this.fb.group({
       matricula: [null],
       nome: [null],
-      caminhoArcanista: [null],
+      caminhoArcanista: [""],
       dataNascimento: [null],
       idade: [null],
-      escolaridade: [null],
+      escolaridade: [""],
       nota: [null],
       foto: [null],
       curriculo: [null],
