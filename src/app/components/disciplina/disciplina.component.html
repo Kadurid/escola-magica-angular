@@ -9,46 +9,47 @@
                 <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
                     <div class="form-group row col-md-12">
                         <div class="col-md-3">
-                            <label for="matricula" class="h5 mt-4">Identificador</label>
-                            <input type="text" class="form-control" name="matricula" id="id"
-                                formControlName="matricula">
+                            <label for="id" class="h5 mt-4">Identificador</label>
+                            <input type="text" class="form-control" name="id" id="id"
+                                formControlName="id">
                         </div>
 
                         <div class="col-md-9">
-                            <label for="matricula" class="h5 mt-4">Nome</label>
+                            <label for="nome" class="h5 mt-4">Nome</label>
                             <input type="text" class="form-control" name="nome" id="nome" formControlName="nome">
                         </div>
                     </div>
 
-                    <!-- <div class="form-group">
-                        <label for="matricula" class="h5 mt-4">Professor Responsável</label>
-                        <input type="text" class="form-control" name="matricula" id="matricula"
-                            formControlName="matricula">
+                    <div class="form-group">
+                        <label for="professorResponsavel" class="h5 mt-4">Professor Responsável</label>
+                        <select class="form-select" id="professorResponsavel" formControlName="professorResponsavel">
+                            <option value="" disabled>Selecione um professor</option>
+                            <option *ngFor="let itera of professores " value="{{itera}}">{{itera.nome}}</option>
+                        </select>
                     </div>
 
                     <div class="form-group">
-                        <label for="matricula" class="h5 mt-4">Nome</label>
-                        <input type="text" class="form-control" name="nome" id="nome" formControlName="nome">
+                        <label for="alunos" class="h5 mt-4">Alunos</label>
+                        <select class="form-select" id="alunos" formControlName="alunos">
+                            <option value="" disabled>Selecione um professor</option>
+                            <option *ngFor="let itera of alunosDisponiveis " value="{{itera}}">{{itera.nome}}</option>
+                        </select>
                     </div>
 
-                    <div class="form-group">
-                        <label for="matricula" class="h5 mt-4">Matrícula</label>
-                        <input type="text" class="form-control" name="matricula" id="matricula"
-                            formControlName="matricula">
+                    <div class="form-group row col-md-12">
+                        <div class="col-md-10">
+                            <label for="revogada" class="h5 mt-4">Revogada</label>
+                            <input type="text" class="form-control" name="revogada" id="revogada"
+                                formControlName="revogada">
+                        </div>
+
+                        <div class="col-md-2">
+                            <label for="cargaHoraria" class="h5 mt-4">Carga Horária</label>
+                            <input type="number" class="form-control" name="cargaHoraria" id="cargaHoraria" formControlName="cargaHoraria">
+                        </div>
                     </div>
-
-                    <div class="form-group">
-                        <label for="matricula" class="h5 mt-4">Nome</label>
-                        <input type="text" class="form-control" name="nome" id="nome" formControlName="nome">
-                    </div> -->
-
-
                 </form>
             </div>
         </div>
     </div>
 </div>
-<!-- professorResponsavel: [null],
-alunos: [null],
-revogada: [null],
-cargaHoraria: [null] --> -->
