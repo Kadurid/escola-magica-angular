@@ -1,3 +1,4 @@
+import { SchoolsOfMagicENUM } from './../../shared/core/enum/schools-of-magic.enum';
 import { EscolaridadeENUM } from './../../shared/core/enum/escolaridade.enum';
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
@@ -12,7 +13,8 @@ import { AlunoService } from 'src/app/shared/core/service/aluno.service';
 })
 export class AlunoComponent extends BaseFormComponent implements OnInit {
 
-  escolaridade: string[] = [];
+  public escolaridade: string[] = [];
+  public schools: string[] = [];
 
   constructor(
     private fb: FormBuilder,
@@ -25,6 +27,7 @@ export class AlunoComponent extends BaseFormComponent implements OnInit {
   ngOnInit(): void {
     this.createForm();
     this.createEscolaridade();
+    this.createSchools();
   }
 
   createEscolaridade(){
@@ -32,8 +35,15 @@ export class AlunoComponent extends BaseFormComponent implements OnInit {
     this.escolaridade.push(EscolaridadeENUM.VETERANO);
     this.escolaridade.push(EscolaridadeENUM.CAMPEAO);
     this.escolaridade.push(EscolaridadeENUM.LENDA);
-    console.log(this.escolaridade);
+  }
 
+  createSchools() {
+    this.schools.push(SchoolsOfMagicENUM.ABJURACAO);
+    this.schools.push(SchoolsOfMagicENUM.ADIVINHACAO);
+    this.schools.push(SchoolsOfMagicENUM.CONJURACAO);
+    this.schools.push(SchoolsOfMagicENUM.ENCANTAMENTO);
+    this.schools.push(SchoolsOfMagicENUM.EVOCACAO);
+    this.schools.push(SchoolsOfMagicENUM.NECROMANCIA);
   }
 
   createForm() {

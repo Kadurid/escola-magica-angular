@@ -37,10 +37,27 @@
             <label for="caminhoArcanista" class="h5 mt-4">Escolaridade</label>
             <select class="form-select" id="caminhoArcanista" formControlName="escolaridade">
               <option value="" disabled>Selecione uma opção</option>
-              <option *ngFor="let valueEnum in colegiados" value="{{valueEnum}}">{{valueEnum}}</option>
+              <option *ngFor="let valueEnum of escolaridade " value="{{valueEnum}}">{{valueEnum}}</option>
             </select>
           </div>
 
+          <div class="form-group">
+            <label for="formFile" class="form-label mt-4">Foto</label>
+            <input class="form-control" type="file" id="formFile" formControlName="foto">
+          </div>
+
+          <div class="form-group">
+            <label for="curriculo" class="form-label mt-4">Currículo</label>
+            <input class="form-control" type="file" id="curriculo" formControlName="curriculo">
+          </div>
+
+          <div class="form-group col-12">
+            <label for="EscolaPreferida" class="h5 mt-4">Escola de Magia Preferida</label>
+            <select class="form-select" id="EscolaPreferida" formControlName="escolaPreferida">
+              <option value="" disabled>Selecione uma opção</option>
+              <option *ngFor="let school of schools " value="{{school}}">{{school}}</option>
+            </select>
+          </div>
 
 
 
