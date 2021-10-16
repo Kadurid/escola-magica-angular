@@ -13,7 +13,7 @@ export interface IAluno {
     curriculo?: string;
     disciplinas?: IDisciplina[];
     disciplinasFinalizadas?: IDisciplina[];
-    escolaPretendida?: string;
+    escolaPreferida?: string;
 }
 
 export class Aluno implements IAluno {
@@ -29,6 +29,6 @@ export class Aluno implements IAluno {
         public curriculo?: string,
         public disciplinas?: IDisciplina[],
         public disciplinasFinalizadas?: IDisciplina[],
-        public escolaPretendida?: string
+        public escolaPreferida?: string
     ) {}
 }

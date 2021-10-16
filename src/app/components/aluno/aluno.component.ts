@@ -41,11 +41,30 @@ export class AlunoComponent extends BaseFormComponent implements OnInit {
     })
   }
 
+  fromData(data: any){
+    let aluno = new Aluno();
+    aluno.matricula = data.matricula;
+    aluno.nome = data.nome;
+    aluno.caminhoArcanista = data.caminhoArcanista;
+    aluno.dataNascimento = data.dataNascimento;
+    aluno.idade = data.idade;
+    aluno.escolaridade = data.escolaridade;
+    aluno.nota = data.nota;
+    aluno.foto = data.foto;
+    aluno.curriculo = data.curriculo;
+    aluno.disciplinas = data.disciplinas;
+    aluno.disciplinasFinalizadas = data.disciplinasFinalizadas;
+    aluno.escolaPreferida = data.escolaPreferida;
+    return aluno;
+  }
+
   submit(){
     console.log(this.formulario);
     let aluno = new Aluno();
+    aluno = this.fromData(this.formulario);
+    console.log(aluno);
     this.service.create(aluno);
-
+    this.location.back();
   }
 
 }
