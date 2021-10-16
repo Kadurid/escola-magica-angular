@@ -7,14 +7,15 @@
     <div class="card col-md-8">
       <div class="card-body">
         <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
-          <div class="form-group">
-            <label for="matricula" class="h5 mt-4">Matrícula</label>
-            <input type="text" class="form-control" name="matricula" id="matricula" formControlName="matricula">
-          </div>
-
-          <div class="form-group">
-            <label for="matricula" class="h5 mt-4">Nome</label>
-            <input type="text" class="form-control" name="nome" id="nome" formControlName="nome">
+          <div class="form-group flex row">
+            <div class="col-4">
+              <label for="matricula" class="h5 mt-4">Matrícula</label>
+              <input type="text" class="form-control" name="matricula" id="matricula" formControlName="matricula">
+            </div>
+            <div class="col-8">
+              <label for="matricula" class="h5 mt-4">Nome</label>
+              <input type="text" class="form-control" name="nome" id="nome" formControlName="nome">
+            </div>
           </div>
 
           <div class="form-group">
@@ -36,7 +37,7 @@
             <label for="caminhoArcanista" class="h5 mt-4">Escolaridade</label>
             <select class="form-select" id="caminhoArcanista" formControlName="escolaridade">
               <option value="" disabled>Selecione uma opção</option>
-              <option *ngFor="let itera of iterateEscolaridadeEnum " value="{{itera}}">{{itera}}</option>
+              <option *ngFor="let valueEnum in colegiados" value="{{valueEnum}}">{{valueEnum}}</option>
             </select>
           </div>
 

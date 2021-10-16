@@ -12,6 +12,8 @@ import { AlunoService } from 'src/app/shared/core/service/aluno.service';
 })
 export class AlunoComponent extends BaseFormComponent implements OnInit {
 
+  escolaridade: string[] = [];
+
   constructor(
     private fb: FormBuilder,
     private location: Location,
@@ -19,9 +21,19 @@ export class AlunoComponent extends BaseFormComponent implements OnInit {
   ) {
     super();
   }
-  iterateEscolaridadeEnum: EscolaridadeENUM[] = [];
+
   ngOnInit(): void {
     this.createForm();
+    this.createEscolaridade();
+  }
+
+  createEscolaridade(){
+    this.escolaridade.push(EscolaridadeENUM.INICIANTE);
+    this.escolaridade.push(EscolaridadeENUM.VETERANO);
+    this.escolaridade.push(EscolaridadeENUM.CAMPEAO);
+    this.escolaridade.push(EscolaridadeENUM.LENDA);
+    console.log(this.escolaridade);
+
   }
 
   createForm() {
@@ -41,6 +53,8 @@ export class AlunoComponent extends BaseFormComponent implements OnInit {
 
     })
   }
+
+
 
   fromData(data: any){
     let aluno = new Aluno();
