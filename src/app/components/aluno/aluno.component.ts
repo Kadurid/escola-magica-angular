@@ -1,15 +1,51 @@
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { BaseFormComponent } from 'src/app/shared/components/base-form/base-form.component';
+import { Aluno } from 'src/app/shared/core/model/aluno.model';
+import { AlunoService } from 'src/app/shared/core/service/aluno.service';
 
 @Component({
-  selector: 'app-aluno',
-  templateUrl: './aluno.component.html',
-  styleUrls: ['./aluno.component.scss']
+  selector: 'incluir-aluno',
+  templateUrl: './aluno.component.html'
 })
-export class AlunoComponent implements OnInit {
+export class AlunoComponent extends BaseFormComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private fb: FormBuilder,
+    private location: Location,
+    private service: AlunoService
+  ) {
+    super();
+  }
 
   ngOnInit(): void {
+    this.criarForm();
+  }
+
+  criarForm() {
+    this.fb.group({
+      matricula: [null],
+      nome: [null],
+      caminhoArcanista: [null],
+      dataNascimento: [null],
+      idade: [null],
+      escolaridade: [null],
+      nota: [null],
+      foto: [null],
+      curriculo: [null],
+      disciplinas: [null],
+      disciplinasFinalizadas: [null],
+      escolaPreferida: [null]
+
+    })
+  }
+
+  submit(){
+    console.log(this.formulario);
+    let aluno = new Aluno();
+    this.service.create(aluno);
+
   }
 
 }
