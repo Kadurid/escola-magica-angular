@@ -1,0 +1,37 @@
+<div class="flex col-sm-12 px-5 me-5 pt-5">
+  <div class="text-center text-white">
+    <h3>Students List</h3>
+  </div>
+  <div class="col-md-12 row">
+    <div class="col-md-2"></div>
+    <div class="card col-md-8 mb-5">
+      <div class="card-body">
+        <div>
+          <h5>Alunos</h5>
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">Registration ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Arcane Tradition</th>
+                <th scope="col">Birthday</th>
+                <th scope="col">Scholarity</th>
+                <th scope="col">Favorite School of Magic</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="table-default" *ngFor="let aluno of alunos" routerLink="/detalhar-aluno/{{ aluno.matricula }}">
+                <td>{{ aluno.matricula }}</td>
+                <td>{{ aluno.nome }}</td>
+                <td>{{ aluno.caminhoArcanista}}</td>
+                <td>{{ aluno.dataNascimento}}</td>
+                <td>{{ aluno.idade }}</td>
+                <td>{{ aluno.escolaPreferida }}</td>
+              </tr>
+            </tbody>
+          </table>
+          <button type="button" class="btn btn-primary mt-2" routerLink='/incluir-alunos'>Incluir</button>
+        </div>
+  </div>
+</div>
+

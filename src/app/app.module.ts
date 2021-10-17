@@ -17,6 +17,8 @@ import { FormDebugComponent } from './shared/components/form-debug/form-debug.co
 import { HomeComponent } from './components/home/home.component';
 import { AlertModalComponent } from './shared/components/alert-modal/alert-modal.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ListarAlunosComponent } from './components/aluno/listar-alunos.component';
+import { DetalharAlunoComponent } from './components/aluno/detalhar-aluno.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FormDebugComponent,
     HomeComponent,
     AlertModalComponent,
+    ListarAlunosComponent,
+    DetalharAlunoComponent,
   ],
   imports: [
     BrowserModule,

@@ -67,7 +67,7 @@
           </div>
 
           <button type="button" class="mt-2 btn btn-link px-0" (click)="addAlunos()">+Add Student</button>
-          <div>
+          <div *ngIf="alunosAdicionados.length > 0">
             <h5>Alunos</h5>
             <table class="table table-hover table-striped">
               <thead>

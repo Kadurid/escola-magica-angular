@@ -1,0 +1,54 @@
+<div class="flex col-sm-12 px-5 me-5 pt-5">
+  <div class="col-md-12 row mt-5">
+    <div class="col-md-2"></div>
+    <div class="card col-md-8 mb-5 pb-4">
+      <div class="d-flex flex row mt-2">
+        <div class="col-12 card-header row">
+          <div class="col-6">
+            <h3>Name</h3>
+            <p class="text-muted h5">{{ aluno.nome }}</p>
+          </div>
+
+          <div class="col-6">
+            <h3>Registration ID</h3>
+            <p class="text-muted h5">{{ aluno.matricula }}</p>
+          </div>
+        </div>
+        <div class="card-body row">
+          <!-- <div class="col-8 mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="d-block user-select-none" width="100%" height="200" aria-label="Placeholder: Image cap" focusable="false" role="img" preserveAspectRatio="xMidYMid slice" viewBox="0 0 318 180" style="font-size:1.125rem;text-anchor:middle">
+              <rect width="100%" height="100%" fill="#868e96"></rect>
+              <text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
+            </svg>
+
+          </div> -->
+          <div class="col-6">
+            <h5>Arcane Tradition</h5>
+            <p>{{ aluno.caminhoArcanista }}</p>
+          </div>
+          <div class="col-6">
+            <h5>Birthday</h5>
+            <p>{{ aluno.dataNascimento }}</p>
+          </div>
+
+          <div class="col-6">
+            <h5>Age</h5>
+            <p>{{ aluno.idade }}</p>
+          </div>
+
+          <div class="col-6">
+            <h5>Scholarity</h5>
+            <p>{{ aluno.escolaridade }}</p>
+          </div>
+
+          <div class="col-6">
+            <h5>Favorite School of Magic</h5>
+            <p>{{ aluno.escolaPreferida }}</p>
+          </div>
+
+          <btn-voltar></btn-voltar>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
