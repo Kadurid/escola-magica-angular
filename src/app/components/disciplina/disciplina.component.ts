@@ -1,3 +1,4 @@
+import { AlertModalService } from './../../shared/core/service/alert-modal.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { BaseFormComponent } from 'src/app/shared/components/base-form/base-form.component';
@@ -23,7 +24,8 @@ export class DisciplinaComponent extends BaseFormComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private location: Location,
-    private service: DisciplinaService
+    private service: DisciplinaService,
+    private alertService: AlertModalService
   ) {
     super();
   }
@@ -56,7 +58,12 @@ export class DisciplinaComponent extends BaseFormComponent implements OnInit {
   addAlunos(){
     const matricula = this.formulario.get('matricula')?.value;
     const aluno = this.alunosDisponiveis.filter(e => e.matricula == matricula);
-    this.alunosAdicionados.push(aluno[0]);
+    if(!this.alunosAdicionados.includes(aluno[0])){
+      this.alunosAdicionados.push(aluno[0]);
+    }
+    else{
+      this.alertService.showAlertWarning("Student already added")
+    }
 
   }
 

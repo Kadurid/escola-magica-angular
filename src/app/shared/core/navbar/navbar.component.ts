@@ -1,3 +1,4 @@
+import { faHatWizard } from '@fortawesome/free-solid-svg-icons';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -5,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './navbar.component.html'
 })
 export class NavbarComponent implements OnInit {
+
+  hatIcon = faHatWizard;
 
   constructor() { }
 
