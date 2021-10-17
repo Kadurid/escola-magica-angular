@@ -44,10 +44,10 @@ export class ProfessorComponent implements OnInit {
   }
 
   onSubmit(formulario: NgForm) {
-    console.log(formulario);
+    console.log(formulario.value);
     let professor = new Professor();
     professor.classe = formulario.value.classe;
-    professor.curriculo = formulario.value.curriculo;
+    professor.nome = formulario.value.nome;
     professor.idade = formulario.value.idade;
     professor.subClasse = formulario.value.subClasse;
     this.service.create(professor);

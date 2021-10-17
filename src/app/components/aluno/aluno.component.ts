@@ -2,7 +2,7 @@ import { SchoolsOfMagicENUM } from './../../shared/core/enum/schools-of-magic.en
 import { EscolaridadeENUM } from './../../shared/core/enum/escolaridade.enum';
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { BaseFormComponent } from 'src/app/shared/components/base-form/base-form.component';
 import { Aluno } from 'src/app/shared/core/model/aluno.model';
 import { AlunoService } from 'src/app/shared/core/service/aluno.service';
@@ -48,18 +48,18 @@ export class AlunoComponent extends BaseFormComponent implements OnInit {
 
   createForm() {
     this.formulario = this.fb.group({
-      matricula: [null],
-      nome: [null],
-      caminhoArcanista: [""],
-      dataNascimento: [null],
-      idade: [null],
-      escolaridade: [""],
+      matricula: [null, Validators.required],
+      nome: [null, Validators.required],
+      caminhoArcanista: ["", Validators.required],
+      dataNascimento: [null, Validators.required],
+      idade: [null, Validators.required],
+      escolaridade: ["", Validators.required],
       nota: [null],
       foto: [null],
       curriculo: [null],
       disciplinas: [null],
       disciplinasFinalizadas: [null],
-      escolaPreferida: [null]
+      escolaPreferida: [null, Validators.required]
 
     })
   }

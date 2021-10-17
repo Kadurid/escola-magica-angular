@@ -10,7 +10,7 @@
           <div class="form-group flex row">
             <div class="col-10">
               <label for="nome" class="h5 mt-4">Name</label>
-              <input type="text" class="form-control" name="nome" id="nome" />
+              <input type="text" class="form-control" name="nome" id="nome" ngModel #nome="ngModel" required minlength="5"/>
             </div>
             <div class="col-2">
               <label for="idade" class="h5 mt-4">Age</label>
@@ -19,23 +19,38 @@
                 class="form-control"
                 name="idade"
                 id="idade"
+                ngModel required
+                #idade="ngModel"
+                minValue="2"
               />
+            </div>
+            <div *ngIf="nome.hasError('required') &&nome.touched">
+              <p class="text-danger">Field "Name" is mandatory</p>
+            </div>
+            <div  *ngIf="nome.hasError('minlength') &&nome.touched">
+              <p class="text-danger">Field "Name" has to have 5 character at minimum </p>
+            </div>
+            <div *ngIf="idade.hasError('required') &&idade.touched">
+              <p class="text-danger">Field "Idade" is mandatory</p>
             </div>
           </div>
 
           <div class="form-group">
             <label for="classe" class="h5 mt-4">Class</label>
-            <select name="classe" id="classe" class="form-select">
+            <select name="classe" id="classe" class="form-select" ngModel required #classe="ngModel">
               <option value="">Select an option</option>
               <option *ngFor="let classe of classes" value="{{ classe }}">
                 {{ classe }}
               </option>
             </select>
           </div>
+          <div *ngIf="classe.hasError('required') &&classe.touched">
+            <p class="text-danger">Field "Classe" is mandatory</p>
+          </div>
 
           <div class="form-group">
             <label for="classe" class="h5 mt-4">Sub-Class</label>
-            <select name="classe" id="classe" class="form-select">
+            <select name="subClasse" id="classe" class="form-select" ngModel required #subClasse="ngModel">
               <option value="">Select an option</option>
               <option
                 *ngFor="let subClasse of subClasses"
@@ -45,9 +60,13 @@
               </option>
             </select>
           </div>
+          <div *ngIf="subClasse.hasError('required') &&subClasse.touched">
+            <p class="text-danger">Field "SubClass" is mandatory</p>
+          </div>
+
           <div class="d-flex flex justify-content-between">
             <btn-voltar></btn-voltar>
-            <button type="submit" class="btn btn-primary mt-4">Submit</button>
+            <button type="submit" class="btn btn-primary mt-4" [disabled]=!form.valid>Submit</button>
           </div>
         </form>
       </div>
