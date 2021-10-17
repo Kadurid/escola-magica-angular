@@ -12,6 +12,7 @@ import { ProfessorComponent } from './components/professor/professor.component';
 import { BtnVoltarComponent } from './shared/components/btn-voltar/btn-voltar.component';
 import { FooterComponent } from './shared/core/footer/footer.component';
 import { NavbarComponent } from './shared/core/navbar/navbar.component';
+import { FormDebugComponent } from './shared/components/form-debug/form-debug.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { NavbarComponent } from './shared/core/navbar/navbar.component';
     ProfessorComponent,
     DisciplinaComponent,
     BtnVoltarComponent,
-    FooterComponent
+    FooterComponent,
+    FormDebugComponent
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { BaseFormComponent } from 'src/app/shared/components/base-form/base-form.component';
 import { ClasseENUM } from 'src/app/shared/core/enum/classe.enum';
 import { EscolaridadeENUM } from 'src/app/shared/core/enum/escolaridade.enum';
@@ -29,9 +29,9 @@ export class DisciplinaComponent extends BaseFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.createForm();
     this.getProfessor();
     this.getAluno();
+    this.createForm();
   }
 
   createForm() {
@@ -39,10 +39,25 @@ export class DisciplinaComponent extends BaseFormComponent implements OnInit {
       id: [null],
       nome: [null],
       professorResponsavel: [""],
-      alunos: [""],
+      matricula: [""],
       revogada: [null],
       cargaHoraria: [null]
     })
+  }
+
+  buildProfessor(){
+    const id = this.formulario.get("professorResponsavel")?.value;
+    const professor = this.professores.filter(e => e.id == id);
+    this.formulario.patchValue({
+      professorResponsavel: professor
+    })
+  }
+
+  addAlunos(){
+    const matricula = this.formulario.get('matricula')?.value;
+    const aluno = this.alunosDisponiveis.filter(e => e.matricula == matricula);
+    this.alunosAdicionados.push(aluno[0]);
+
   }
 
   getProfessor() {
@@ -66,10 +81,13 @@ export class DisciplinaComponent extends BaseFormComponent implements OnInit {
     this.alunosDisponiveis.push(new Aluno('202111et', 'Mariazinha', 'CLERIGO', '10/10/199', 12, EscolaridadeENUM.INICIANTE, [], '', '', [], [], 'uma ai'));
   }
 
-  addAluno() {
-    this.alunosAdicionados.push(this.getAlunoAdicionado(this.formulario));
-    console.log(this.alunosAdicionados);
-  }
+  // addAluno() {
+  //   console.log(this.formulario.get('alunos')?.value);
+  //   const matricula = this.formulario.get('alunos')?.value;
+  //   const aluno = this.alunosDisponiveis.filter(e => e.matricula = matricula);
+  //   this.alunosAdicionados.push(this.getAlunoAdicionado(aluno));
+  //   console.log(this.alunosAdicionados);
+  // }
 
   getAlunoAdicionado(data: any): IAluno {
     return data.alunos;
@@ -88,10 +106,13 @@ export class DisciplinaComponent extends BaseFormComponent implements OnInit {
   }
 
   submit(){
-    console.log(this.formulario.value);
     let disciplina = this.fromData(this.formulario);
-    console.log(disciplina);
+    const values = this.alunosAdicionados.map(e => new FormControl(e))
+    this.buildProfessor();
+    this.formulario.addControl("alunos", this.fb.array(values))
+    this.formulario.removeControl("matricula");
     this.service.create(disciplina);
+    console.log(this.formulario.value);
     this.location.back();
   }
 }
