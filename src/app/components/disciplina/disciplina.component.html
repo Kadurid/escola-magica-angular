@@ -1,51 +1,55 @@
-<div class="flex col-sm-12 px-5 mx-5 pt-5">
+<div class="flex col-sm-12 px-5 me-5 pt-5">
     <div class="text-center text-white">
-        <h3>Incluir Disciplina</h3>
+        <h3>Include Subject</h3>
     </div>
     <div class="col-md-12 row">
         <div class="col-md-2"></div>
-        <div class="card col-md-8">
+        <div class="card col-md-8 mb-5">
             <div class="card-body">
                 <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
-                    <div class="form-group row col-md-12">
+                    <div class="form-group row">
                         <div class="col-md-3">
-                            <label for="id" class="h5 mt-4">Identificador</label>
+                            <label for="id" class="h5 mt-4">Identifier</label>
                             <input type="text" class="form-control" name="id" id="id"
                                 formControlName="id">
                         </div>
 
                         <div class="col-md-9">
-                            <label for="nome" class="h5 mt-4">Nome</label>
+                            <label for="nome" class="h5 mt-4">Name</label>
                             <input type="text" class="form-control" name="nome" id="nome" formControlName="nome">
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="professorResponsavel" class="h5 mt-4">Professor Responsável</label>
+                        <label for="professorResponsavel" class="h5 mt-4">Lecturing Teacher</label>
                         <select class="form-select" id="professorResponsavel" formControlName="professorResponsavel" style="width: 97%!important;">
-                            <option value="" disabled>Selecione um professor</option>
+                            <option value="" disabled>Select a teacher</option>
                             <option *ngFor="let itera of professores " value="{{itera}}">{{itera.nome}}</option>
                         </select>
                     </div>
 
                     <div class="form-group">
-                        <label for="alunos" class="h5 mt-4">Alunos</label>
+                        <label for="alunos" class="h5 mt-4">Students</label>
                         <select class="form-select" id="alunos" style="width: 97%!important;" formControlName="alunos" (change)="addAluno()">
-                            <option value="" disabled>Selecione um professor</option>
+                            <option value="" disabled>Select a student</option>
                             <option *ngFor="let itera of alunosDisponiveis " value="{{itera}}">{{itera.nome}}</option>
                         </select>
                     </div>
 
                     <div class="form-group row col-md-12">
-                        <div class="col-md-9">
+                        <!-- <div class="col-md-9">
                             <label for="revogada" class="h5 mt-4">Revogada</label>
                             <input type="text" class="form-control" name="revogada" id="revogada"
                                 formControlName="revogada">
-                        </div>
+                        </div> -->
 
                         <div class="col-md-3">
                             <label for="cargaHoraria" class="h5 mt-4">Carga Horária</label>
                             <input type="number" class="form-control" name="cargaHoraria" id="cargaHoraria" formControlName="cargaHoraria">
+                        </div>
+                        <div class="d-flex flex justify-content-between">
+                          <btn-voltar></btn-voltar>
+                          <button type="submit" class="btn btn-primary mt-4">Submit</button>
                         </div>
                     </div>
                 </form>

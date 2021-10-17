@@ -1,16 +1,17 @@
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './shared/core/navbar/navbar.component';
 import { AlunoComponent } from './components/aluno/aluno.component';
-import { ProfessorComponent } from './components/professor/professor.component';
 import { DisciplinaComponent } from './components/disciplina/disciplina.component';
-import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
-import { BaseFormComponent } from './shared/components/base-form/base-form.component';
+import { ProfessorComponent } from './components/professor/professor.component';
 import { BtnVoltarComponent } from './shared/components/btn-voltar/btn-voltar.component';
+import { FooterComponent } from './shared/core/footer/footer.component';
+import { NavbarComponent } from './shared/core/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { BtnVoltarComponent } from './shared/components/btn-voltar/btn-voltar.co
     AlunoComponent,
     ProfessorComponent,
     DisciplinaComponent,
-    BtnVoltarComponent
+    BtnVoltarComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -27,6 +29,7 @@ import { BtnVoltarComponent } from './shared/components/btn-voltar/btn-voltar.co
     FormsModule,
     ReactiveFormsModule,
     CommonModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

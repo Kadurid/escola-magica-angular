@@ -14,7 +14,7 @@ export class BtnVoltarComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  voltar(){
+  goBack(){
     this.location.back();
   }
 

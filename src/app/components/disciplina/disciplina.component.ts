@@ -11,7 +11,7 @@ import { DisciplinaService } from 'src/app/shared/core/service/disciplina.servic
 import { Location } from '@angular/common';
 
 @Component({
-  selector: 'app-disciplina',
+  selector: 'incluir-disciplina',
   templateUrl: './disciplina.component.html'
 })
 export class DisciplinaComponent extends BaseFormComponent implements OnInit {
@@ -88,7 +88,7 @@ export class DisciplinaComponent extends BaseFormComponent implements OnInit {
   }
 
   submit(){
-    console.log(this.formulario);
+    console.log(this.formulario.value);
     let disciplina = this.fromData(this.formulario);
     console.log(disciplina);
     this.service.create(disciplina);
