@@ -59,7 +59,7 @@ export class AlunoComponent extends BaseFormComponent implements OnInit {
       curriculo: [null],
       disciplinas: [null],
       disciplinasFinalizadas: [null],
-      escolaPreferida: [null, Validators.required]
+      escolaPreferida: ["", Validators.required]
 
     })
   }

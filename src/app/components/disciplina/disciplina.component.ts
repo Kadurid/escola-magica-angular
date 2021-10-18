@@ -1,3 +1,4 @@
+import { SchoolsOfMagicENUM } from './../../shared/core/enum/schools-of-magic.enum';
 import { AlertModalService } from './../../shared/core/service/alert-modal.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
@@ -58,11 +59,14 @@ export class DisciplinaComponent extends BaseFormComponent implements OnInit {
   addAlunos(){
     const matricula = this.formulario.get('matricula')?.value;
     const aluno = this.alunosDisponiveis.filter(e => e.matricula == matricula);
-    if(!this.alunosAdicionados.includes(aluno[0])){
+    if(!this.alunosAdicionados.includes(aluno[0])&& !(this.formulario.get('matricula')?.value=="")){
       this.alunosAdicionados.push(aluno[0]);
     }
     else{
+      if(this.alunosAdicionados.includes(aluno[0]))
       this.alertService.showAlertWarning("Student already added")
+      else
+      this.alertService.showAlertWarning("Pick a student first")
     }
 
   }
@@ -75,17 +79,17 @@ export class DisciplinaComponent extends BaseFormComponent implements OnInit {
   }
 
   getAluno() {
-    this.alunosDisponiveis.push(new Aluno('202101et', 'Jao', 'CLERIGO', '10/10/199', 12, EscolaridadeENUM.INICIANTE, [], '', '', [], [], 'uma ai'));
-    this.alunosDisponiveis.push(new Aluno('202102et', 'Maria', 'CLERIGO', '10/10/199', 12, EscolaridadeENUM.INICIANTE, [], '', '', [], [], 'uma ai'));
-    this.alunosDisponiveis.push(new Aluno('202103et', 'Enzo', 'CLERIGO', '10/10/199', 12, EscolaridadeENUM.INICIANTE, [], '', '', [], [], 'uma ai'));
-    this.alunosDisponiveis.push(new Aluno('202104et', 'Valentina', 'CLERIGO', '10/10/199', 12, EscolaridadeENUM.INICIANTE, [], '', '', [], [], 'uma ai'));
-    this.alunosDisponiveis.push(new Aluno('202105et', 'Geruza', 'CLERIGO', '10/10/199', 12, EscolaridadeENUM.INICIANTE, [], '', '', [], [], 'uma ai'));
-    this.alunosDisponiveis.push(new Aluno('202106et', 'Tam', 'CLERIGO', '10/10/199', 12, EscolaridadeENUM.INICIANTE, [], '', '', [], [], 'uma ai'));
-    this.alunosDisponiveis.push(new Aluno('202107et', 'Igor', 'CLERIGO', '10/10/199', 12, EscolaridadeENUM.INICIANTE, [], '', '', [], [], 'uma ai'));
-    this.alunosDisponiveis.push(new Aluno('202108et', 'Breno', 'CLERIGO', '10/10/199', 12, EscolaridadeENUM.INICIANTE, [], '', '', [], [], 'uma ai'));
-    this.alunosDisponiveis.push(new Aluno('202109et', 'Italo', 'CLERIGO', '10/10/199', 12, EscolaridadeENUM.INICIANTE, [], '', '', [], [], 'uma ai'));
-    this.alunosDisponiveis.push(new Aluno('202110et', 'Jaozinho', 'CLERIGO', '10/10/199', 12, EscolaridadeENUM.INICIANTE, [], '', '', [], [], 'uma ai'));
-    this.alunosDisponiveis.push(new Aluno('202111et', 'Mariazinha', 'CLERIGO', '10/10/199', 12, EscolaridadeENUM.INICIANTE, [], '', '', [], [], 'uma ai'));
+    this.alunosDisponiveis.push(new Aluno('202101et', 'Jao', ClasseENUM.CLERIGO, '10/10/199', 12, EscolaridadeENUM.INICIANTE, [], '', '', [], [], SchoolsOfMagicENUM.ABJURACAO));
+    this.alunosDisponiveis.push(new Aluno('202102et', 'Maria', ClasseENUM.BARDO, '10/10/199', 12, EscolaridadeENUM.INICIANTE, [], '', '', [], [], SchoolsOfMagicENUM.ADIVINHACAO));
+    this.alunosDisponiveis.push(new Aluno('202103et', 'Enzo', ClasseENUM.GUERREIRO, '10/10/199', 12, EscolaridadeENUM.INICIANTE, [], '', '', [], [], SchoolsOfMagicENUM.CONJURACAO));
+    this.alunosDisponiveis.push(new Aluno('202104et', 'Valentina', ClasseENUM.ARCANISTA, '10/10/199', 12, EscolaridadeENUM.INICIANTE, [], '', '', [], [], SchoolsOfMagicENUM.ENCANTAMENTO));
+    this.alunosDisponiveis.push(new Aluno('202105et', 'Geruza', ClasseENUM.CLERIGO, '10/10/199', 12, EscolaridadeENUM.INICIANTE, [], '', '', [], [], SchoolsOfMagicENUM.EVOCACAO));
+    this.alunosDisponiveis.push(new Aluno('202106et', 'Tam', ClasseENUM.ARCANISTA, '10/10/199', 12, EscolaridadeENUM.INICIANTE, [], '', '', [], [], SchoolsOfMagicENUM.NECROMANCIA));
+    this.alunosDisponiveis.push(new Aluno('202107et', 'Igor', ClasseENUM.CLERIGO, '10/10/199', 12, EscolaridadeENUM.INICIANTE, [], '', '', [], [], SchoolsOfMagicENUM.ABJURACAO));
+    this.alunosDisponiveis.push(new Aluno('202108et', 'Breno', ClasseENUM.ARCANISTA, '10/10/199', 12, EscolaridadeENUM.INICIANTE, [], '', '', [], [], SchoolsOfMagicENUM.EVOCACAO));
+    this.alunosDisponiveis.push(new Aluno('202109et', 'Italo', ClasseENUM.BARDO, '10/10/199', 12, EscolaridadeENUM.INICIANTE, [], '', '', [], [], SchoolsOfMagicENUM.EVOCACAO));
+    this.alunosDisponiveis.push(new Aluno('202110et', 'Jaozinho', ClasseENUM.ARCANISTA, '10/10/199', 12, EscolaridadeENUM.INICIANTE, [], '', '', [], [], SchoolsOfMagicENUM.EVOCACAO));
+    this.alunosDisponiveis.push(new Aluno('202111et', 'Mariazinha', ClasseENUM.ARCANISTA, '10/10/199', 12, EscolaridadeENUM.INICIANTE, [], '', '', [], [], SchoolsOfMagicENUM.EVOCACAO));
   }
 
   // addAluno() {
@@ -121,5 +125,6 @@ export class DisciplinaComponent extends BaseFormComponent implements OnInit {
     this.service.create(disciplina);
     console.log(this.formulario.value);
     this.location.back();
+    this.alertService.showAlertSuccess("Success!")
   }
 }

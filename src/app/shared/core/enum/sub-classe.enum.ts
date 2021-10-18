@@ -1,5 +1,5 @@
 export enum SubClasseENUM {
-    TECNOMAGO = 'Tecno Mago',
-    GUERREIROARCANO = 'Guerreiro Arcano',
-    BARDOENTUSIASTA = 'Bardo Entusiasta'
+    TECNOMAGO = 'TecnoMage',
+    GUERREIROARCANO = 'Eldritch Knight',
+    BARDOENTUSIASTA = 'Bard of Valor'
 }

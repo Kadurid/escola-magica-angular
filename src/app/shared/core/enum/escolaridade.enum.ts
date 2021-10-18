@@ -1,6 +1,6 @@
 export enum EscolaridadeENUM {
-    INICIANTE = 'Iniciante',
-    VETERANO = 'Veterano',
-    CAMPEAO = 'Campeão',
-    LENDA = 'Lenda'
+    INICIANTE = 'Beginner',
+    VETERANO = 'Veteran',
+    CAMPEAO = 'Champion',
+    LENDA = 'Legend'
 }

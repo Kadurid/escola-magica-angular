@@ -1,6 +1,6 @@
 export enum ClasseENUM {
-    ARCANISTA = 'Arcanista',
-    GUERREIRO = 'Guerreiro',
-    CLERIGO = 'Clerigo',
-    BARDO = 'Bardo'
+    ARCANISTA = 'Arcanist',
+    GUERREIRO = 'Warrior',
+    CLERIGO = 'Cleric',
+    BARDO = 'Bard'
 }
